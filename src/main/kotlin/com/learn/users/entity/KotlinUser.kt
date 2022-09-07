@@ -14,7 +14,7 @@ data class KotlinUser(
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id")
-    val id: String,
+    var id: String,
     @Column(name = "NAME")
     val name: String
 )
