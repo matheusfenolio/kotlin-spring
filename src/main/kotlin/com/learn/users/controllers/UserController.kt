@@ -5,13 +5,16 @@ import com.learn.users.model.request.KotlinUserRequest
 import com.learn.users.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
-import java.util.UUID;
+import java.util.*
 
 @RestController
 @RequestMapping("/user")
 class UserController @Autowired constructor(private val userService: UserService) {
     @GetMapping()
     fun getAllUsers() : List<KotlinUser> = userService.fetchAllUsers()
+
+    @GetMapping("/name")
+    fun getAllUsersName() : List<String> = userService.getAllUsersName()
 
     @GetMapping("/{id}")
     fun getUser(@PathVariable("id") id: String) : KotlinUser = userService.fetchUserById(id)
